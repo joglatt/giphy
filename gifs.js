@@ -66,8 +66,11 @@ function displayGif() {
           class: "gif",
           alt: response.data[i].images.fixed_height.url
         });
+        var rating =(response.data[i].rating).toUpperCase();
+        var info = $("<div class='info'>Rating: "+rating+"</div>")
                 
         $(frame).append(gif);
+        $(frame).append(info);
         $("#gif-con").append(frame);
       }
       

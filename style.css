@@ -1,6 +1,30 @@
-.gif{
-    padding:2px;
+* {
+  box-sizing: border-box;
+}
+.container {
+  width: 80%;
+  margin: 0 auto 0;
+  background:ghostwhite;
+}
+.gif-frame {
+  text-align: center;
+  float: left;
+  margin: 1%;
+  border: 1px solid black;
+}
+#heading {
+  width:100%;
+  text-align: center;
+  background:black;
+  color: white;
+  border: 2px solid grey;
+}
+#button-con,
+#search-con {
+  padding: 5px;
+  text-align: center;
+  background:black;
 }
 #gif-con{
-margin:0 auto;
+  background:ghostwhite;
 }
