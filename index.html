@@ -3,23 +3,21 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Giphy API</title>
+  <title>Giphy</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 </head>
 
 <body>
+  <heading>
+    <input id="textbox" type="text" name="firstname">
+    <button id="submit">Submit</button>
+  </heading>
+  <div id="button-con"></div>
+  <div id="gif-con"></div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript">
-    // Example queryURL for Giphy API
-    var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=lwqDafcEL3ZIEU1Zs7ZOL1aDzlJxhMZc";
-
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function(response) {
-      console.log(response);
-    });
-  </script>
-
+  <script type="text/javascript" src="gifs.js"></script>
 </body>
 
 </html>
