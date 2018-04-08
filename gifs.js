@@ -45,7 +45,7 @@ function displayGif() {
       console.log(response.data[0].rating);
 
       for (var i = 0; i < response.data.length; i++) {
-        var frame = $("<div class='gif-frame center-align col s1 '>");
+        var frame = $("<div class='gif-frame center-align'>");
         var gif = $("<img>");
           gif.attr ({
           class: "gif",
@@ -79,6 +79,7 @@ function animateGif() {
     }
   });
 }
+
 $(document).ready(function() {
   displayButtons();
   displayGif();
