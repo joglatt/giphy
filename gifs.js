@@ -18,26 +18,11 @@ function submitClick() {
 
 function displayButtons() {
   for (var i = 0; i < buttonArray.length; i++) {
-    var b = $("<button>");
-    b.addClass("gifButton");
+    var b = $("<a>");
+    b.addClass("gifButton waves-effect waves-light btn");
     b.text(buttonArray[i]);
     $("#button-con").append(b);
   }
-}
-
-function animateGif() {
-  $("#gif-con").on("click",".gif", function() {
-    var move = $(this).attr("alt");
-    var still = $(this).attr("src");
-     
-   if($(this).attr("src") === move){
-    $(this).attr("src", still);
-    $(this).attr("alt", move);
-   }else if ($(this).attr("src") === still){
-    $(this).attr("src" , move);
-    $(this).attr("alt" , still);
-   }
-  });
 }
 
 //on click function for showing gifs
@@ -58,26 +43,42 @@ function displayGif() {
       console.log(response.data[0].images.original_still);
       console.log(response.data[0].images.original);
       console.log(response.data[0].rating);
-      
+
       for (var i = 0; i < response.data.length; i++) {
-        var frame = $("<div class='gif-frame'>")
-        var gif = $("<img>", {
-          src: response.data[i].images.fixed_height_still.url,
+        var frame = $("<div class='gif-frame center-align col s1 '>");
+        var gif = $("<img>");
+          gif.attr ({
           class: "gif",
-          alt: response.data[i].images.fixed_height.url
+          src: response.data[i].images.fixed_height_still.url,
+          animate: response.data[i].images.fixed_height.url,
+          stop: response.data[i].images.fixed_height_still.url,
         });
-        var rating =(response.data[i].rating).toUpperCase();
-        var info = $("<div class='info'>Rating: "+rating+"</div>")
-                
+
+        $(".gif").attr("state" , "still");
+
+        var rating = response.data[i].rating.toUpperCase();
+        var info = $("<div class='info'>Rating: " + rating + "</div>");
+
         $(frame).append(gif);
         $(frame).append(info);
-        $("#gif-con").append(frame);
+        $("#gif-con").append(frame);  
       }
-      
     });
   });
 }
+function animateGif() {
+  $("#gif-con").on("click", ".gif", function() {
+    var state = $(this).attr("state");
 
+    if (state === "still") {
+      $(this).attr("src", $(this).attr("animate"));
+      $(this).attr("state", "move");
+    } else {
+      $(this).attr("src", $(this).attr("stop"));
+      $(this).attr("state", "still");
+    }
+  });
+}
 $(document).ready(function() {
   displayButtons();
   displayGif();

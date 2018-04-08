@@ -4,8 +4,10 @@
 <head>
   <meta charset="utf-8">
   <title>Giphy</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 
@@ -13,16 +15,28 @@
   <div id="heading">
     <h1>GIF MADNESS</h1>
     <div id="search-con">
-      <input id="textbox" type="text" name="firstname">
-      <button id="submit">Submit</button>
-      <div id="button-con"></div>
+      <div class="row">
+        <div class="col m3">
+          <button id="submit" class="btn waves-effect waves-light btn-large" text="Create a Button" type="submit" name="action">
+              <i >Submit</i>
+          </button>
+        </div>
+        <div class="input-field col m6 center-align">
+          <input id="textbox" type="text" name="firstname">
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="container">
 
-    
-    <div id="gif-con"></div>
+    <div id="button-con"></div>
   </div>
+  </div>
+  <div class="wrappercontainer">
+
+
+    <div class = "col m6 container" id="gif-con"></div>
+  </div>
+
+  <script type="text/javascript" src="js/materialize.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="gifs.js"></script>
 </body>
